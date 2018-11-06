@@ -1,0 +1,40 @@
+<form #form="ngForm" (ngSubmit)="saveNewProduct(form.value)">
+
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input ngModel #title="ngModel" id="title" name="title" class="form-control" required>
+    <div *ngIf="title.touched && title.invalid" class="alert alert-danger">
+      Title is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <div class="input-group-prepend">
+      <span class="input-group-text">$</span>
+      <input ngModel #price="ngModel" type="number" name="price" id="price" class="form-control" required>
+    </div>
+    <div *ngIf="price.touched && price.invalid" class="alert alert-danger">
+      Price is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select ngModel #category="ngModel" id="category" name="category" class="form-control" required>
+      <option value=""></option>
+      <option *ngFor="let category of categories">{{category.name}}</option>
+    </select>
+    <div *ngIf="category.touched && category.invalid" class="alert alert-danger">
+      Select a category
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Image URL</label>
+    <input ngModel id="image" name="image" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">Save</button>
+
+</form>

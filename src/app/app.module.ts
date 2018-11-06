@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { RoutingModule } from './router.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -20,10 +22,14 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+
 
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { UserService } from './user.service';
+import { FoodCategoryService } from './food-category.service';
+import { ProductService } from './product.service';
 // import { AdminAuthGuardService } from './admin-auth-guard.service';
 
 @NgModule({
@@ -38,17 +44,19 @@ import { UserService } from './user.service';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
     RoutingModule,
+    FormsModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService, UserService, AuthGuardService],
+  providers: [AuthService, UserService, ProductService, AuthGuardService, FoodCategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
