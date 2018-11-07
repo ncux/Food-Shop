@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { RoutingModule } from './router.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-
+import { CustomFormsModule } from 'ng5-validation';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -51,6 +51,7 @@ import { ProductService } from './product.service';
     BrowserModule,
     RoutingModule,
     FormsModule,
+    CustomFormsModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,

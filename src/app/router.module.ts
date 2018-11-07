@@ -24,8 +24,9 @@ const routes: Routes = [
   { path: 'thanks-for-your-purchase', component: ThanksForYourPurchaseComponent, canActivate: [AuthGuardService] },
   { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuardService] },
   { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
-  { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService] },
   { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService] },
+  { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService] },
+  { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService] },  // most specific route 1st
   { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService] },
 ];
 

@@ -13,4 +13,12 @@ export class ProductService {
   saveNewProduct(product) {
     return this.database.list('/products').push(product);
   }
+
+  getAllProducts(): AngularFireList<any[]> {
+    return this.database.list('/products');
+  }
+
+  getProductByID(productID) {
+    return this.database.object(`/products/${productID}`);
+  }
 }
